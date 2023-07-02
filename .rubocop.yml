@@ -18,6 +18,7 @@ AllCops:
     - tmp/test_apps/**/*
     - gemfiles/rails_61/vendor/bundle/**/*
     - vendor/bundle/**/*
+    - rails_70/**/*
 
   Include:
     - gemfiles/*/Gemfile

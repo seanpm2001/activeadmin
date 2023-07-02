@@ -1,0 +1,267 @@
+@tailwind base;
+
+@layer base {
+  body {
+    @apply bg-white dark:bg-gray-900 dark:text-white;
+  }
+
+  [type=text],
+  [type=date],
+  select:not([size]),
+  textarea {
+    @apply bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 w-full dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500;
+  }
+
+  [type=checkbox] {
+    @apply w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600;
+  }
+
+  /* a {
+    @apply text-blue-600 underline dark:text-white hover:no-underline;
+  } */
+}
+
+/*! components layer start */
+@tailwind components;
+
+@layer components {
+
+  /* .link-default {
+    @apply text-blue-600 underline dark:text-white hover:no-underline;
+  } */
+
+  .columns {
+    display: grid;
+    grid-auto-columns: 1fr;
+    grid-auto-flow: column;
+    grid-gap: 1rem;
+  }
+
+  #header {
+    /* display: none; */
+    @apply bg-gray-100 border-b border-gray-200 dark:border-gray-700 dark:bg-gray-800 p-4 flex items-center;
+  }
+
+  #utility_nav {
+    /* margin-inline-start: auto; */
+    @apply flex flex-wrap ms-auto;
+  }
+
+  #utility_nav :where(li) {
+    @apply flex;
+  }
+
+  #utility_nav :where(li > a) {
+    @apply flex ps-3 pe-3;
+  }
+
+  .page-footer {
+    @apply text-xs mt-10 mx-8 pt-9 pb-12 text-gray-500;
+    border-top: 1px solid #e5e7eb;
+  }
+  .page-footer :where(a) {
+    @apply text-blue-600 underline dark:text-white hover:no-underline;
+  }
+
+  .page-title-bar {
+    /* @apply border-b border-gray-200 dark:border-gray-700 dark:bg-gray-800 p-4; */
+    @apply bg-gray-200 p-4 mb-8 gap-4 items-center flex justify-between dark:border-t dark:border-gray-700 dark:bg-gray-800;
+  }
+
+  .page-title-bar-content {
+    @apply flex flex-col gap-3 pt-1;
+  }
+
+  .page-title-bar-heading {
+    @apply text-2xl font-semibold;
+  }
+
+  .breadcrumbs {
+    @apply flex text-xs;
+  }
+
+  .breadcrumbs-item {
+    @apply inline-flex items-center;
+  }
+
+  :where(.breadcrumbs-item) + .breadcrumbs-item:before {
+    @apply px-2;
+    content: "/"
+  }
+
+  .page-title-bar-actions {
+    @apply flex gap-2 flex-wrap justify-end;
+  }
+
+  .page-content-container {
+    @apply px-2.5 lg:px-5 grid gap-4 lg:gap-6 md:grid-cols-1 md:grid-flow-col md:auto-cols-[minmax(0,250px)] lg:auto-cols-[minmax(0,280px)];
+    /* grid-template-columns: 1fr; */
+    /* grid-auto-columns: minmax(0, 280px); */
+    /* grid-auto-flow: column; */
+    /* padding: 0 10px; */
+  }
+
+  .main-content-container {
+    /* @apply shadow-md sm:rounded-lg; */
+    /* @apply bg-white border border-gray-200 rounded-lg shadow-sm dark:border-gray-700 dark:bg-gray-800; */
+    /* overflow: auto; */
+  }
+  .table_tools {
+    margin-bottom: 0;
+    padding: 1rem;
+  }
+
+  .paginated_collection {
+    @apply bg-white border border-gray-200 rounded-lg shadow-sm dark:border-gray-700 dark:bg-gray-800;
+  }
+  .paginated-collection-footer {
+    @apply p-4 grid grid-flow-col auto-cols-fr gap-2;
+  }
+
+  .index_as_table {
+    @apply relative overflow-x-auto;
+  }
+
+  .index_table {
+    @apply w-full text-sm text-left text-gray-800 dark:text-gray-300;
+  }
+
+  .index_table :where(thead) {
+    @apply text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400;
+  }
+
+  .index_table :where(thead > tr > th) {
+    @apply px-5 py-3 whitespace-nowrap;
+  }
+
+  .index_table :where(tbody > tr) {
+    @apply bg-white border-b dark:bg-gray-800 dark:border-gray-700;
+  }
+
+  .index_table :where(td) {
+    @apply px-5 py-3;
+  }
+
+  .flash_notice {
+    @apply flex p-4 mb-4 text-green-800 rounded-lg bg-green-50 dark:bg-gray-800 dark:text-green-400;
+  }
+
+  /* SECONDARY BUTTON styles - transparent bg, light gray on rollover */
+  .clear_filters_btn {
+    @apply text-blue-700 hover:bg-gray-100 hover:text-blue-600 font-medium rounded-lg text-sm px-4 py-2.5 text-center dark:border-blue-500 dark:text-blue-500 dark:hover:text-white dark:hover:bg-blue-500 dark:focus:ring-blue-800 transition-colors no-underline;
+  }
+
+  .view_link, .edit_link {
+    @apply text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800 no-underline;
+  }
+
+  .delete_link {
+    @apply focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-4 py-2 mr-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900 no-underline;
+  }
+
+  .filter_form :where(label) {
+    display: block;
+    margin-bottom: 6px;
+    font-size: 0.9em;
+  }
+
+  .filter-input-group {
+    display: grid;
+    grid-auto-columns: minmax(0, 1fr);
+    grid-auto-flow: column;
+    gap: 0.5rem;
+  }
+
+  .filter_form_field {
+    margin-bottom: 1rem;
+  }
+
+  .panel {
+    @apply bg-white border border-gray-200 rounded-lg shadow-sm dark:border-gray-700 dark:bg-gray-800;
+    /* @apply p-4; */
+  }
+  .panel + :where(.panel) {
+    @apply mt-6;
+  }
+  .panel > :where(h3) {
+    @apply font-bold bg-gray-100 rounded-t-lg p-3;
+  }
+  .panel-body {
+    @apply py-6 px-4;
+  }
+
+  /* form fieldset.inputs */
+  .inputs {
+    @apply border rounded-lg shadow-sm p-4;
+  }
+
+  .attributes_table {
+    @apply bg-white border border-gray-200 rounded-lg shadow-sm dark:border-gray-700 dark:bg-gray-800;
+  }
+
+  .attributes_table > :where(table) {
+    @apply w-full text-sm text-left text-gray-800 dark:text-gray-300;
+  }
+
+  .attributes_table :where(tbody > tr) {
+    @apply bg-white border-b dark:bg-gray-800 dark:border-gray-700;
+  }
+
+  .attributes_table :where(tbody > tr > th) {
+    @apply w-40 text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400;
+  }
+
+  .attributes_table :where(tbody > tr > th),
+  .attributes_table :where(tbody > tr > td) {
+    @apply px-5 py-3;
+  }
+
+  :where(.sidebar) .attributes_table :where(tbody > tr > th) {
+    width: auto;
+    @apply w-min;
+  }
+
+  :where(.sidebar) .attributes_table :where(tbody > tr > th),
+  :where(.sidebar) .attributes_table :where(tbody > tr > td) {
+    @apply px-3 py-2;
+  }
+
+  .status_tag {
+    @apply bg-gray-200 text-sm font-medium px-2.5 py-0.5 rounded dark:bg-gray-700 dark:text-gray-400;
+  }
+
+  .status_tag:where(.yes) {
+    @apply bg-green-100 text-green-800 text-sm font-medium px-2.5 py-0.5 rounded dark:bg-green-900 dark:text-green-300;
+  }
+
+  .tabs-nav {
+    @apply flex flex-wrap mb-2 text-sm font-medium text-center border-b border-gray-200 dark:border-gray-700;
+  }
+
+  .tabs-nav > :where(button) {
+    @apply inline-block p-4 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300;
+  }
+
+  .tabs-content {
+    @apply p-4 mb-6;
+  }
+
+  .dropdown_menu {
+    @apply relative;
+  }
+
+  .dropdown_menu_button {
+    @apply disabled:bg-blue-400 disabled:hover:bg-blue-400 disabled:hover:dark:bg-blue-500 disabled:dark:bg-blue-500 disabled:cursor-not-allowed;
+  }
+
+  .dropdown_menu :where(ul) {
+    @apply z-10 hidden bg-white rounded shadow dark:bg-gray-700 py-1 text-sm text-gray-700 dark:text-gray-200;
+  }
+
+  .dropdown_menu :where(ul > li > a) {
+    @apply block px-2.5 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white;
+  }
+}
+
+/*! utilities layer start */
+@tailwind utilities;
