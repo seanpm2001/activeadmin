@@ -24,3 +24,18 @@ const setSearchType = function(event) {
 };
 
 Rails.delegate(document, ".filter_form_field.select_and_search select", "change", setSearchType)
+
+const clearFilterForm = function(event) {
+  event.preventDefault()
+
+  const regex = /^(q\[|page|utf8|commit)/
+  const params = new URLSearchParams(window.location.search)
+
+  Array.from(params.keys())
+    .filter(k => k.match(regex))
+    .forEach(k => params.delete(k))
+
+  window.location.search = params.toString()
+}
+
+Rails.delegate(document, ".clear_filters_btn", "click", clearFilterForm)
