@@ -8,7 +8,7 @@ RSpec.describe "Stylesheets", type: :request do
     assets = Rails.application.assets
     assets.find_asset("active_admin.css")
   end
-  it "should successfully render the scss stylesheets using sprockets" do
+  it "should successfully render the stylesheets using sprockets" do
     expect(css).to_not eq nil
   end
 

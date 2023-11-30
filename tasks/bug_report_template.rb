@@ -15,7 +15,6 @@ gemfile(true) do
   gem "rails", "~> 7.0.0"
 
   gem "sprockets", "~> 3.7"
-  gem "sassc-rails"
   gem "sqlite3", platform: :mri
   gem "activerecord-jdbcsqlite3-adapter", platform: :jruby
 

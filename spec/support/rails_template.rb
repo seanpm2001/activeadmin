@@ -113,14 +113,6 @@ directory File.expand_path("templates/admin", __dir__), "app/admin"
 directory File.expand_path("templates/views", __dir__), "app/views"
 directory File.expand_path("templates/policies", __dir__), "app/policies"
 
-inject_into_file "config/initializers/active_admin.rb", before: /^end$/ do
-  <<-RUBY
-  config.clear_stylesheets!
-  config.register_stylesheet 'active_admin_old.css', media: "all"
-  config.register_stylesheet 'active_admin.css', media: "all"
-  RUBY
-end
-
 if ENV["RAILS_ENV"] != "test"
   inject_into_file "config/routes.rb", "\n  root to: redirect('admin')", after: /.*routes.draw do/
 end
