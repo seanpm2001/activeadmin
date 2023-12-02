@@ -44,6 +44,10 @@ module ActiveAdmin
 
       protected
 
+      def default_class_name
+        "attributes_list"
+      end
+
       def term_content_for(attribute)
         if @resource_class.respond_to?(:human_attribute_name)
           @resource_class.human_attribute_name(attribute, default: attribute.to_s.titleize)
